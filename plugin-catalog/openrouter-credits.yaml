@@ -1,0 +1,32 @@
+# Community catalog entry — openrouter-credits
+#
+# Owner-submitted: the PR author (`Leonard0429`) owns and maintains the repo below.
+# Exact-SHA pin (40-hex). No self-updating code: the plugin ships only Python
+# (`__init__.py` / `tools.py`) and never fetches, downloads, or replaces itself.
+name: openrouter-credits
+repo: https://github.com/Leonard0429/hermes-openrouter-credits
+sha: "6164ff85a2bc1c9983b1fee41151f89f92145441"
+description: "OpenRouter credit tracking as an agent tool. openrouter_credits reports the
+  current balance, spend for today / this week / this month / all time, any spend cap on the
+  API key, a burn rate measured from recorded snapshots, and the estimated days of credit
+  remaining — so 'how much credit is left, and how fast am I burning it' is one tool call
+  instead of a curl. Disclosure: two read-only HTTPS GETs to the configured OpenRouter base
+  URL (/credits and /key); the user's own OpenRouter key is read via Hermes'
+  agent.secret_scope and sent only to that base URL, never logged or written to disk; the
+  only local write is a timestamped snapshot history (dollar amounts, no credentials) under
+  $HERMES_HOME/cache/openrouter-credits/; no telemetry, no subprocesses, no background work,
+  no prompt or OAuth flow, and nothing on the account is ever modified."
+maintainer: Leonard0429
+tier: community
+category: tools
+requires_hermes: ">=0.21.5"
+docs_url: https://github.com/Leonard0429/hermes-openrouter-credits#readme
+version: "1.0.0"
+platforms: []
+capabilities:
+  provides_tools:
+    - openrouter_credits
+  provides_hooks: []
+  provides_middleware: []
+  requires_env:
+    - OPENROUTER_API_KEY
