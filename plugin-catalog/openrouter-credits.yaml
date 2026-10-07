@@ -2,26 +2,32 @@
 #
 # Owner-submitted: the PR author (`Leonard0429`) owns and maintains the repo below.
 # Exact-SHA pin (40-hex). No self-updating code: the plugin ships only Python
-# (`__init__.py` / `tools.py`) and never fetches, downloads, or replaces itself.
+# (`__init__.py` / `tools.py` / `dashboard/plugin_api.py`) and a static
+# `desktop/plugin.js`, and never fetches, downloads, or replaces itself.
 name: openrouter-credits
 repo: https://github.com/Leonard0429/hermes-openrouter-credits
-sha: "6164ff85a2bc1c9983b1fee41151f89f92145441"
-description: "OpenRouter credit tracking as an agent tool. openrouter_credits reports the
-  current balance, spend for today / this week / this month / all time, any spend cap on the
-  API key, a burn rate measured from recorded snapshots, and the estimated days of credit
-  remaining — so 'how much credit is left, and how fast am I burning it' is one tool call
-  instead of a curl. Disclosure: two read-only HTTPS GETs to the configured OpenRouter base
-  URL (/credits and /key); the user's own OpenRouter key is read via Hermes'
-  agent.secret_scope and sent only to that base URL, never logged or written to disk; the
+sha: "938da54b3ddb37474a0a438d6c7aee98ac4b5321"
+description: "OpenRouter credit tracking, as an agent tool and a live desktop panel. The
+  openrouter_credits tool reports the current balance, spend for today / this week / this
+  month / all time, any spend cap on the API key, a burn rate measured from recorded
+  snapshots, and the estimated days of credit remaining. The desktop half adds a status-bar
+  chip with the live balance plus a full panel page (sidebar row + Cmd-K command) with the
+  spent-of-purchased meter, spend windows, burn rate, runway and a Record snapshot button,
+  refreshing every 60s. Disclosure: two read-only HTTPS GETs to the configured OpenRouter
+  base URL (/credits and /key), made in the Hermes process — the desktop renderer holds no
+  credential and only ever receives dollar amounts over the plugin's own scoped route
+  /api/plugins/openrouter-credits/ (GET /credits is read-only; only the tool and the panel's
+  explicit button record). The user's own OpenRouter key is read via Hermes'
+  agent.secret_scope, sent only to that base URL, and never logged or written to disk. The
   only local write is a timestamped snapshot history (dollar amounts, no credentials) under
-  $HERMES_HOME/cache/openrouter-credits/; no telemetry, no subprocesses, no background work,
+  $HERMES_HOME/cache/openrouter-credits/. No telemetry, no subprocesses, no background work,
   no prompt or OAuth flow, and nothing on the account is ever modified."
 maintainer: Leonard0429
 tier: community
-category: tools
+category: desktop
 requires_hermes: ">=0.21.5"
 docs_url: https://github.com/Leonard0429/hermes-openrouter-credits#readme
-version: "1.0.0"
+version: "1.1.0"
 platforms: []
 capabilities:
   provides_tools:
