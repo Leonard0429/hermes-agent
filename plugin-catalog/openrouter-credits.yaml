@@ -5,7 +5,7 @@
 # (`__init__.py` / `tools.py` / `dashboard/plugin_api.py`) and a static
 # `desktop/plugin.js`, and never fetches, downloads, or replaces itself.
 name: openrouter-credits
-repo: https://github.com/Leonard0429/hermes-openrouter-credits
+repo: https://github.com/Leonard0429/openrouter-credit-dashboard
 sha: "938da54b3ddb37474a0a438d6c7aee98ac4b5321"
 description: "OpenRouter credit tracking, as an agent tool and a live desktop panel. The
   openrouter_credits tool reports the current balance, spend for today / this week / this
@@ -26,7 +26,7 @@ maintainer: Leonard0429
 tier: community
 category: desktop
 requires_hermes: ">=0.21.5"
-docs_url: https://github.com/Leonard0429/hermes-openrouter-credits#readme
+docs_url: https://github.com/Leonard0429/openrouter-credit-dashboard#readme
 version: "1.1.0"
 platforms: []
 capabilities:
